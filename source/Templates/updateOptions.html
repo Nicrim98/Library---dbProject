@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<title>
+    Biblioteka
+</title>
+<body>
+
+<h1>
+   Biblioteka Główna
+</h1>
+
+<div class="workspace" id="worker">
+
+        <h1>Kontynuuj Mistrzu !</h1>
+
+</div>
+
+<section class="container_select">
+<div class="updOptions" id="dropmenu">
+    <h2>Aktualizuj...</h2>
+    
+    <select id="updvalue" name="updates" class="textarea">
+        <option value="wybierz">--- wybierz z listy ---</option>
+        <option value="category">kategorie</option>
+        <option value="author">autora</option>
+        <option value="book">książkę</option>
+        <option value="reader">czytelnika</option>
+    </select>
+
+    <input id="what_to_upd_button" type="submit" value="Dalej" class="button" onclick="dropdown()">
+</div>
+</section>
+<section class="container">
+    <div class="addUpdForm-popup" id="addUpd">
+
+        <!-- Nowe dane do bazy -->
+        <form action="/updated" method="post" class="form-container">
+        <div class="newCategories" id="newCategory">
+            <h3> Nowa Kategoria: </h3>
+            <input type="text" name="updNewKategoria" placeholder="Nazwa kategorii" class="textarea">
+        </div>
+        <div class="newAuthors" id="newAuthor">
+            <h3> Nowy autor: </h3>
+            <input type="text" name="updNewImie" placeholder="Imię autora" class="textarea">
+            <input type="text" name="updNewNazwisko" placeholder="Nazwisko autora" class="textarea">
+        </div>
+        <div class="newBooks" id="newBook">
+            <h3> Nowa książka: </h3>
+            <input type="text" name="updNewIdKategorii" placeholder="ID kategorii" class="textarea">
+            <input type="text" name="updNewTitle" placeholder="Tytuł książki" class="textarea">
+            <input type="text" name="updNewIdAutora" placeholder="ID autora" class="textarea">
+            <input type="text" name="updNewRok" placeholder="Rok wydania" class="textarea">
+        </div>
+        <div class="newReaders" id="newReader">
+            <h3> Nowy czytelnik: </h3>
+            <input type="text" name="updNewImieCzytelnika" placeholder="Imię czytelnika" class="textarea">
+            <input type="text" name="updNewNazwiskoCzytelnika" placeholder="Nazwisko czytelnika" class="textarea">
+            <input type="text" name="updNewPESEL" placeholder="PESEL" class="textarea">
+            <input type="text" name="updNewDataUrodzenia" placeholder="Data urodzenia" class="textarea">
+        </div>
+        
+        <!-- Podmieniane dane z bazy -->
+        <div class="oldCategories" id="oldCategory">
+                <h3> Usuwanie kategorii: </h3>
+                <input type="text" name="updOldKategoria" placeholder="Nazwa kategorii" class="textarea">
+                <input id="updKategorii" type="submit" value="Zaktualizuj kategorie" class="btn">
+            </div>
+            <div class="oldAuthors" id="oldAuthor">
+                <h3> Usuwany autor: </h3>
+                <input type="text" name="updOldAutorzyIdAutora" placeholder="ID autora" class="textarea">
+                <input type="text" name="updOldNazwisko" placeholder="Nazwisko autora" class="textarea">
+                <input id="updAutora" type="submit" value="Zaktualizuj autora" class="btn">
+            </div>
+            <div class="oldBooks" id="oldBook">
+                <h3> Usuwana książka: </h3>
+                <input type="text" name="updOldIdKsiazki" placeholder="ID książki" class="textarea">
+                <input type="text" name="updOldTitle" placeholder="Tytuł książki" class="textarea">
+                <input id="updKsiazke" type="submit" value="Zaktualizuj książkę" class="btn">
+            </div>
+            <div class="oldReaders" id="oldReader">
+                <h3> Usuwany czytelnik: </h3>
+                <input type="text" name="updOldIdCzytelnika" placeholder="ID czytelnika" class="textarea">
+                <input type="text" name="updOldNazwiskoCzytelnika" placeholder="Nazwisko czytelnika" class="textarea">
+                <input id="uodCzytelnika" type="submit" value="Zaktualizuj czytelnika" class="btn">
+            </div>
+            </form>
+    
+        </div>
+</section>
+<div>
+    <br>
+    <button type="submit" class="workerButton" onclick="backHome()">Powrót na główną stronę</button>
+</div>
+
+<script>
+    function dropdown() {
+        var what_to_upd = document.getElementById("updvalue");
+        var selectedValue = what_to_upd.options[what_to_upd.selectedIndex].value;
+        if (selectedValue == "wybierz") {
+            alert("Proszę wybierz co aktualizować :)");
+        }
+        if (selectedValue == "category"){
+            document.getElementById("addUpd").style.display = "inline-block";
+            document.getElementById("newCategory").style.display = "inline-block";
+            document.getElementById("newAuthor").style.display = "none";
+            document.getElementById("newBook").style.display = "none";
+            document.getElementById("newReader").style.display = "none";
+
+            document.getElementById("oldCategory").style.display = "inline-block";
+            document.getElementById("oldAuthor").style.display = "none";
+            document.getElementById("oldBook").style.display = "none";
+            document.getElementById("oldReader").style.display = "none";
+        }
+        if (selectedValue == "author"){
+            document.getElementById("addUpd").style.display = "inline-block";
+            document.getElementById("newCategory").style.display = "none";
+            document.getElementById("newAuthor").style.display = "inline-block";
+            document.getElementById("newBook").style.display = "none";
+            document.getElementById("newReader").style.display = "none";
+
+            document.getElementById("oldCategory").style.display = "none";
+            document.getElementById("oldAuthor").style.display = "inline-block";
+            document.getElementById("oldBook").style.display = "none";
+            document.getElementById("oldReader").style.display = "none";
+        }
+        if (selectedValue == "book"){
+            document.getElementById("addUpd").style.display = "inline-block";
+            document.getElementById("newCategory").style.display = "none";
+            document.getElementById("newAuthor").style.display = "none";
+            document.getElementById("newBook").style.display = "inline-block";
+            document.getElementById("newReader").style.display = "none";
+
+            document.getElementById("oldCategory").style.display = "none";
+            document.getElementById("oldAuthor").style.display = "none";
+            document.getElementById("oldBook").style.display = "inline-block";
+            document.getElementById("oldReader").style.display = "none";
+        }
+        if (selectedValue == "reader"){
+            document.getElementById("addUpd").style.display = "inline-block";
+            document.getElementById("newCategory").style.display = "none";
+            document.getElementById("newAuthor").style.display = "none";
+            document.getElementById("newBook").style.display = "none";
+            document.getElementById("newReader").style.display = "inline-block";
+
+            document.getElementById("oldCategory").style.display = "none";
+            document.getElementById("oldAuthor").style.display = "none";
+            document.getElementById("oldBook").style.display = "none";
+            document.getElementById("oldReader").style.display = "inline-block";
+        }
+    }
+    function backHome() {
+        location.href = "/";
+    }
+</script>
+
+</body>
+</html> 

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<title>
+    Biblioteka
+</title>
+<body>
+
+<h1>
+   Biblioteka Główna
+</h1>
+
+<table>
+    <thead>
+       <tr>
+          <th>Kategoria</th> <th>identyfikator</th> <th>Tytuł</th> <th>Autor</th> <th>Rok wydania</th> <th>Dostępność</th>
+       </tr>
+    </thead>
+    <tbody>
+       <tr>
+
+          <td>{{kategoria}}</td> <td>{{id}}</td> <td>"{{tytul}}"</td> <td>{{autor}}</td> <td>{{rok}}</td> 
+          <td>
+              <div>
+                  <!--  <input id="borrowbox" type="submit" value="Wypożycz" class="button" onclick="openForm()"> -->
+                  <input id="borrowbox" type="submit" value="{{state}}" class="button" onclick="openForm()">
+              </div>
+            </td>
+
+       </tr>
+    </tbody>
+ </table>
+ 
+ <div class="form-popup" id="login">
+    <form action="/login" method="post" class="login-container">
+      <h2>Login</h2>
+  
+      <label for="ID"><b>ID</b></label><br>
+      <input type="number" placeholder="Id czytelnika" name="id" class="textarea" required>
+
+      <label for="Imie"><b>Imię</b></label>
+      <input type="text" placeholder="Imie" name="us_name" class="textarea" required>
+  
+      <label for="psw"><b>Nazwisko</b></label>
+      <input type="text" placeholder="Nazwisko" name="us_sname" class="textarea" required>
+  
+      <button type="login" class="btn">Login</button>
+    </form>
+  </div>
+
+<script>
+   
+   //  function openForm() {
+   //  document.getElementById("login").style.display = "block";
+   //  }
+    function openForm() {
+      if(document.getElementById('borrowbox').value == "Już wypożyczona"){
+         document.getElementById("login").style.display = "none";
+      }else{
+         document.getElementById("login").style.display = "block";
+
+      }
+    }
+
+   
+</script>
+
+</body>
+</html> 

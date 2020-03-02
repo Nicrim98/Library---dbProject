@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<title>
+    Biblioteka
+</title>
+<body>
+
+<h1>
+   Biblioteka Główna
+</h1>
+
+<div class="workspace" id="worker">
+
+        <h1>Kontynuuj Mistrzu !</h1>
+
+</div>
+
+<section class="container_select">
+<div class="delOptions" id="dropmenu">
+    <h2>Usuń...</h2>
+    
+    <select id="delvalue" name="removals" class="textarea">
+        <option value="wybierz">--- wybierz z listy ---</option>
+        <option value="category">kategorie</option>
+        <option value="author">autora</option>
+        <option value="book">książkę</option>
+        <option value="reader">czytelnika</option>
+    </select>
+
+    <input id="what_to_del_button" type="submit" value="Dalej" class="button" onclick="dropdown()">
+</div>
+</section>
+<section class="container">
+    <div class="delForm-popup" id="del">
+
+        <form action="/deleted" method="post" class="form-container">
+        <div class="oldCategories" id="oldCategory">
+            <h3> Usuwanie kategorii: </h3>
+            <input type="text" name="delNewKategoria" placeholder="Nazwa kategorii" class="textarea">
+            <input id="usunKategorie" type="submit" value="Usuń kategorie" class="btn">
+        </div>
+        <div class="oldAuthors" id="oldAuthor">
+            <h3> Usuwany autor: </h3>
+            <input type="text" name="delautorzyIdAutora" placeholder="ID autora" class="textarea">
+            <input type="text" name="delNewImie" placeholder="Imię autora" class="textarea">
+            <input type="text" name="delNewNazwisko" placeholder="Nazwisko autora" class="textarea">
+            <input id="usunAutora" type="submit" value="Usuń autora" class="btn">
+        </div>
+        <div class="oldBooks" id="oldBook">
+            <h3> Usuwana książka: </h3>
+            <input type="text" name="delNewIdKsiazki" placeholder="ID książki" class="textarea">
+            <input type="text" name="delNewIdKategorii" placeholder="ID kategorii" class="textarea"> 
+            <input type="text" name="delNewTitle" placeholder="Tytuł książki" class="textarea">
+            <input type="text" name="delNewIdAutora" placeholder="ID autora" class="textarea">
+            <input type="text" name="delNewRok" placeholder="Rok wydania" class="textarea">
+            <input id="usunKsiazke" type="submit" value="Usuń książkę" class="btn">
+        </div>
+        <div class="oldReaders" id="oldReader">
+            <h3> Usuwany czytelnik: </h3>
+            <input type="text" name="delNewImieCzytelnika" placeholder="Imię czytelnika" class="textarea">
+            <input type="text" name="delNewNazwiskoCzytelnika" placeholder="Nazwisko czytelnika" class="textarea">
+            <input type="text" name="delNewPESEL" placeholder="PESEL" class="textarea">
+            <input type="text" name="delNewDataUrodzenia" placeholder="Data urodzenia" class="textarea">
+            <input id="usunCzytelnika" type="submit" value="Usuń czytelnika" class="btn">
+        </div>
+        </form>
+
+    </div>
+
+<div>
+    <br>
+    <button type="submit" class="workerButton" onclick="backHome()">Powrót na główną stronę</button>
+</div>
+
+<script>
+    function dropdown() {
+        var what_to_del = document.getElementById("delvalue");
+        var selectedValue = what_to_del.options[what_to_del.selectedIndex].value;
+        if (selectedValue == "wybierz") {
+            alert("Proszę wybierz co usunąć :)");
+        }
+        if (selectedValue == "category"){
+            document.getElementById("del").style.display = "inline-block";
+            document.getElementById("oldCategory").style.display = "inline-block";
+            document.getElementById("oldAuthor").style.display = "none";
+            document.getElementById("oldBook").style.display = "none";
+            document.getElementById("oldReader").style.display = "none";
+        }
+        if (selectedValue == "author"){
+            document.getElementById("del").style.display = "inline-block";
+            document.getElementById("oldCategory").style.display = "none";
+            document.getElementById("oldAuthor").style.display = "inline-block";
+            document.getElementById("oldBook").style.display = "none";
+            document.getElementById("oldReader").style.display = "none";
+        }
+        if (selectedValue == "book"){
+            document.getElementById("del").style.display = "inline-block";
+            document.getElementById("oldCategory").style.display = "none";
+            document.getElementById("oldAuthor").style.display = "none";
+            document.getElementById("oldBook").style.display = "inline-block";
+            document.getElementById("oldReader").style.display = "none";
+        }
+        if (selectedValue == "reader"){
+            document.getElementById("del").style.display = "inline-block";
+            document.getElementById("oldCategory").style.display = "none";
+            document.getElementById("oldAuthor").style.display = "none";
+            document.getElementById("oldBook").style.display = "none";
+            document.getElementById("oldReader").style.display = "inline-block";
+        }
+    }
+
+    function backHome() {
+        location.href = "/";
+    }
+
+</script>
+
+</body>
+</html> 

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<title>
+    Biblioteka
+</title>
+<body>
+
+<h1>
+   Biblioteka Główna
+</h1>
+
+<div class="workspace" id="worker">
+
+        <h1>Kontynuuj Mistrzu !</h1>
+
+</div>
+
+<section class="container_select">
+<div class="addOptions" id="dropmenu">
+    <h2>Dodaj...</h2>
+    
+    <select id="addvalue" name="additives" class="textarea">
+        <option value="wybierz">--- wybierz z listy ---</option>
+        <option value="category">kategorie</option>
+        <option value="author">autora</option>
+        <option value="book">książkę</option>
+        <option value="reader">czytelnika</option>
+    </select>
+
+    <input id="what_to_add_button" type="submit" value="Dalej" class="button" onclick="dropdown()">
+</div>
+</section>
+<section class="container">
+    <div class="addForm-popup" id="add">
+
+        <form action="/added" method="post" class="form-container">
+        <div class="newCategories" id="newCategory">
+            <h3> Nowa Kategoria: </h3>
+            <input type="text" name="addNewKategoria" placeholder="Nazwa kategorii" class="textarea">
+            <input id="dodajKategorie" type="submit" value="Dodaj kategorie" class="btn">
+        </div>
+        <div class="newAuthors" id="newAuthor">
+            <h3> Nowy autor: </h3>
+            <input type="text" name="addNewImie" placeholder="Imię autora" class="textarea">
+            <input type="text" name="addNewNazwisko" placeholder="Nazwisko autora" class="textarea">
+            <input id="dodajAutora" type="submit" value="Dodaj autora" class="btn">
+        </div>
+        <div class="newBooks" id="newBook">
+            <h3> Nowa książka: </h3>
+            <input type="text" name="addNewIdKategorii" placeholder="ID kategorii" class="textarea">
+            <input type="text" name="addNewTitle" placeholder="Tytuł książki" class="textarea">
+            <input type="text" name="addNewIdAutora" placeholder="ID autora" class="textarea">
+            <input type="text" name="addNewRok" placeholder="Rok wydania" class="textarea">
+            <input id="dodajKsiazke" type="submit" value="Dodaj książkę" class="btn">
+        </div>
+        <div class="newReaders" id="newReader">
+            <h3> Nowy czytelnik: </h3>
+            <input type="text" name="addNewImieCzytelnika" placeholder="Imię czytelnika" class="textarea">
+            <input type="text" name="addNewNazwiskoCzytelnika" placeholder="Nazwisko czytelnika" class="textarea">
+            <input type="text" name="addNewPESEL" placeholder="PESEL" class="textarea">
+            <input type="text" name="addNewDataUrodzenia" placeholder="Data urodzenia" class="textarea">
+            <input id="dodajCzytelnika" type="submit" value="Dodaj czytelnika" class="btn">
+        </div>
+        </form>
+
+    </div>
+
+<div>
+    <br>
+    <button type="submit" class="workerButton" onclick="backHome()">Powrót na główną stronę</button>
+</div>
+
+<script>
+    function dropdown() {
+        var what_to_add = document.getElementById("addvalue");
+        var selectedValue = what_to_add.options[what_to_add.selectedIndex].value;
+        if (selectedValue == "wybierz") {
+            alert("Proszę wybierz co dodać :)");
+        }
+        if (selectedValue == "category"){
+            document.getElementById("add").style.display = "inline-block";
+            document.getElementById("newCategory").style.display = "inline-block";
+            document.getElementById("newAuthor").style.display = "none";
+            document.getElementById("newAuthor").innerHTML = "";
+            document.getElementById("newBook").style.display = "none";
+            document.getElementById("newReader").style.display = "none";
+
+        }
+        if (selectedValue == "author"){
+            document.getElementById("add").style.display = "inline-block";
+            document.getElementById("newCategory").style.display = "none";
+            document.getElementById("newAuthor").style.display = "inline-block";
+            document.getElementById("newBook").style.display = "none";
+            document.getElementById("newReader").style.display = "none";
+        }
+        if (selectedValue == "book"){
+            document.getElementById("add").style.display = "inline-block";
+            document.getElementById("newCategory").style.display = "none";
+            document.getElementById("newAuthor").style.display = "none";
+            document.getElementById("newBook").style.display = "inline-block";
+            document.getElementById("newReader").style.display = "none";
+        }
+        if (selectedValue == "reader"){
+            document.getElementById("add").style.display = "inline-block";
+            document.getElementById("newCategory").style.display = "none";
+            document.getElementById("newAuthor").style.display = "none";
+            document.getElementById("newBook").style.display = "none";
+            document.getElementById("newReader").style.display = "inline-block";
+        }
+    }
+
+    function backHome() {
+        location.href = "/";
+    }
+
+</script>
+
+</body>
+</html> 

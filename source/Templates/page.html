@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<title>
+    Biblioteka
+</title>
+<body>
+
+<h1>
+   Biblioteka Główna
+</h1>
+
+{% if message %}
+    <p class="message">{{ message }}</p>
+{% endif %}
+
+<div class="topnav">
+    <form action="/submit" method="POST">
+        <h3>Wyszukiwarka książek:</h3>
+        <input class="textarea" type="text" name="title" placeholder="Szukany tytuł... lub szukane nazwisko autora... ">
+        <input id="textboxid" type="submit" value="Szukaj" class="btn">
+    </form>
+</div>
+
+<div class="worker">
+    <form action="/worker" method="POST">
+        <input id="worker" type="submit" value="Bibliotekarz" class="workerButton">
+    </form>
+</div>
+
+<div class="results">
+    <p>Ostatnio dodane do biblioteki:</p>
+    <span> 
+        "Dziady", Adam Mickiewicz, 2014<br>
+        "Teoria Sygnalow", Zdzislaw Papir, 2008
+    </span>
+</div>
+<!--Jeszcze nie działa wersja dla pracownika, więc po kliknięciu wyskakuje błąd-->
+<script type="text/javascript">
+    document.getElementById("workerBox").onclick = function () {
+        location.href = "/worker";
+    };
+</script>
+
+</body>
+</html> 

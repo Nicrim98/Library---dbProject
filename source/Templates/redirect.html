@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<title>
+    Biblioteka
+</title>
+<body>
+
+<h1>
+   Biblioteka Główna
+</h1>
+
+<div class="results">
+    <p>Znalezione tytuły:</p>
+    <span id="foundTitle"> 
+        Kategoria: {{kategoria}} <br>
+        Id książki: {{id}}, {{tytul}}, {{autor}}, {{rok}}
+    </span>
+</div>
+
+<script>
+    document.getElementById("foundTitle").textContent=tytul;
+</script>
+
+</body>
+</html> 

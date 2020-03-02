@@ -1,0 +1,320 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+    background: rgb(244, 244, 244);
+    background-image: url(library.png);
+	font-family: Helvetica;
+	color: #333;
+	line-height: 1.6;
+}
+
+.container {
+  width: 80%;
+  height: 80%;
+	margin: auto;
+	overflow: auto;
+	padding: 0 2rem;
+}
+
+.container_select {
+  background-color: silver;
+  width: 30%;
+  height: 60%;
+	margin: auto;
+	overflow: auto;
+	padding: 0 0.2rem;
+}
+
+h1 {
+	color: red;
+  margin-top: 15px;
+  text-align: center;
+}
+
+.message {
+	text-align: center;
+	padding: 5px;
+	border: #ccc dotted 2px;
+	margin-top: 2rem;
+}
+
+.form-group {
+	margin: 1rem 0;
+}
+
+.textarea {
+	display: block;
+	width: 100%;
+	padding: 0.4rem;
+	font-size: 1.2rem;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+.btn {
+  display: block;
+  margin: auto;
+	width: 100%;
+	background: #333;
+	color: #fff;
+	padding: 10px 20px;
+	border: none;
+	cursor: pointer;
+	outline: none;
+	margin-top: 1rem;
+}
+
+.div {
+    background-color: lightgrey;
+    width: 300px;
+    border: 15px solid green;
+    padding: 50px;
+    margin: 20px;
+    align-items: center;
+  }
+  
+.topnav {
+   color: lightcoral;
+  margin-top: 15px;
+    text-align: left;
+  }
+
+  #textboxid{
+    height: 50px;
+    width: 100px;
+    font-size: 14pt;
+  }
+  
+  .button {
+    display: block;
+    width: 100%;
+    background: lightgrey;
+    color: slateblue;
+    padding: 5px 10px;
+    cursor: pointer;
+    outline: none;
+    margin-top: none;
+  }
+
+  .workerButton {
+    display: block;
+    width: 100%;
+    background: sandybrown;
+    color: black;
+    padding: 10px 20px;
+    font-size: large;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    margin-top: none;
+    position: absolute;
+    right:    0;
+    bottom:   0;
+  }
+
+  .borrow{
+    height: 30px;
+    width: 200px;
+    font-size: 9pt;
+  }
+  .results {
+    display: block;
+    clear:both;
+  }
+
+  .results p {
+      text-align: center;
+      font-size: 24px;
+      color: lightseagreen;
+  }
+
+  .results span {
+    background-color: lightblue;
+    width: 2048px;
+    border: 15px solid darkcyan;
+    padding: 100px;
+    margin: 20px;
+    float: left;
+    align-self: center;
+  }
+
+  .message {
+    color: black;
+    background-color: silver;
+  }
+
+  .mistake {
+    display: block;
+    clear:both;
+  }
+
+  .mistake p {
+      text-align: center;
+      font-size: 64px;
+      color: yellowgreen;
+  }
+
+  table {
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    width: fit-content;
+  }
+
+  td { 
+    padding: 8px;
+    text-align: center;
+    color: yellowgreen;
+    border-bottom: 1px solid #ddd;
+  }
+
+  th {
+    padding: 8px;
+    text-align: center;
+    color: whitesmoke;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .open-button {
+    background-color: #555;
+    color: white;
+    padding: 20px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+    width: 400px;
+  }
+
+  .form-popup {
+    display: none;
+    position: fixed;
+    bottom: 0px;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+  }
+
+  .before-form-popup {
+    display: inline-block;
+    position: fixed;
+    bottom: 0px;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+    margin-top: 100px;
+  }
+
+  .addForm-popup {
+    width: 50%;
+    margin: 0 auto;
+    display: none;
+    margin-top: 100px;
+  }
+
+  .delForm-popup {
+    width: 50%;
+    margin: 0 auto;
+    display: none;
+    margin-top: 100px;
+  }
+
+  .addUpdForm-popup {
+    width: 50%;
+    margin: 0 auto;
+    display: none;
+    margin-top: 100px;
+  }
+
+  .form-container {
+    width: 50%;
+    margin: 0 auto;
+    max-width: 300px;
+    padding: 10px;
+    background-color: lightgoldenrodyellow;
+    text-align: center;
+    align: center;
+  }
+
+  .login-container {
+    width: auto;
+    max-width: 300px;
+    padding: 10px;
+    background-color: lightskyblue;
+    text-align: center;
+    align: center;
+  }
+
+  .addForm-container {
+    max-width: 300px;
+    padding: 10px;
+    margin-left: 1px;
+    display: inline;
+  }
+
+  .delForm-container {
+    max-width: 300px;
+    padding: 10px;
+    margin-right: 1px;
+    display: inline;
+  }
+
+  .outcome {
+    color: cyan;
+    margin-top: 300px;
+    font-size: xx-large;
+    text-align: center;
+  }
+
+  .workspace h1{
+    color: mediumturquoise;
+    text-align: center;
+    margin-top: 100px;
+  }
+
+  .outcome h1{
+    color: yellow;
+    text-align: center;
+    margin-top: 100px;
+  }
+
+  .add h2{
+    font-size: larger;
+    color: greenyellow;
+  }
+
+  .add h3{
+    font-size: medium;
+    color: yellow;
+  }
+
+  .del h2{
+    font-size: larger;
+    color: greenyellow;
+  }
+
+  .del h3{
+    font-size: medium;
+    color: yellow;
+  }
+
+  .newAuthor, .newReader, .newBook, .newCategory {
+
+    display: none;
+  }
+
+  .oldAuthor, .oldReader, .oldBook, .oldCategory {
+    display: none;
+  }
+
+  .wyszukaj {
+    box-sizing: border-box;
+	  margin: 0;
+	  padding: 0;
+  }

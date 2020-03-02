@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<title>
+    Biblioteka
+</title>
+<body>
+
+<h1>
+   Biblioteka Główna
+</h1>
+
+<div class="workspace" id="worker">
+    <h1>Witaj mistrzu !</h1>
+</div>
+
+<div class="addOptions">
+    <form action="/addOptions" method="post" class="form-container">
+        <input id="addOptions" type="submit" value="Dodaj" class="button" onclick="openAddOptions()">
+    </form>
+</div>
+
+<div class="delOptions">
+    <form action="/deleteOptions" method="post" class="form-container">
+        <input id="delOptions" type="submit" value="Usuń" class="button" onclick="openDelOptions()">
+    </form>
+</div>
+
+<div class="updateOptions">
+    <form action="/updateOptions" method="post" class="form-container">
+        <input id="updOptions" type="submit" value="Aktualizuj" class="button" onclick="openUpdOptions()">
+    </form>
+</div>
+
+<div>
+    <br>
+    <button type="submit" class="workerButton" onclick="backHome()">Powrót na główną stronę</button>
+</div>
+
+<script>
+   
+    function openAddOptions() {
+        location.href = "/addOptions";
+    }
+    function openDelOptions() {
+        location.href = "/deleteOptions";
+    }
+    function openUpdOptions() {
+        location.href = "/updateOptions";
+    }
+    function backHome() {
+        location.href = "/";
+    }
+</script>
+
+</body>
+</html> 
